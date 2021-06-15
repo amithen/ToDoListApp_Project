@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>ToDoApp</title>
+   </head>
+   <body>
+      {%block body%}
+      <div class="container">
+          <div class="row">
+            <div class="col-md-6 py-4">
+                <form  method="post">
+                    {% csrf_token %}
+                    <b>{{ form.as_p }}</b>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="Submit" class="btn btn-primary">
+                    <br>
+                </form>
+             </div>
+              <div class="col-md-6 py-4">
+                  <div class="container">
+                      <div class="rows">
+                      <div class="cols col-md-6">
+                      {% for title in todo %}
+                      {{ title.title }}&nbsp&nbsp
+                    </div>
+                    <div class="cols col-md-6">
+                      <a href="{% url 'todo:update'  title.id %}">
+                        <button type="submit" class="btn btn-success"> Edit </button>
+                      </a>
+                      <a href="{% url 'todo:delete'  title.id %}">
+                         <button type="submit" class="btn btn-danger"> Delete </button>
+                      </a>
+                      <br><br>
+                        {% endfor %}
+                    </div>
+                  </div>
+                  </div>
+              </div>
+
+      </div>
+      </div>
+
+{%endblock body%}
+
+
+
+   </body>
+</html>

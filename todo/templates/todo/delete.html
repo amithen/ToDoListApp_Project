@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+    {%block body%}
+    <div class="container">
+        <b><h3>Do you Wanna delete ({{todo.title}})? </h3></b><br><br>
+        <a href="{% url 'todo:home' %}"><input type="button" class="btn btn-primary" name="cancel" value="Cancel"></a><br><br>
+        <form method="POST" >
+            {%csrf_token%}
+            <input type="submit" class="btn btn-danger">
+        </form>
+    </div>
+
+    {%endblock body%}
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+{%block body%}
+<div class="container">
+    <h3>Update Task</h3>
+    <form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input value="update" type="submit" class="btn btn-danger">
+    </form>
+</div>
+
+{%endblock body%}
+
+</body>
+</html>
